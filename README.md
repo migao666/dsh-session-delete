@@ -8,6 +8,8 @@ persisted session log and its projection-cache row go to the **Windows Recycle
 Bin**, and the conversation leaves the sidebar. There is deliberately **no
 in-app restore row** — recovery is the system Recycle Bin.
 
+
+仓库（私有）：[https://github.com/migao666/dsh-session-delete](https://github.com/migao666/dsh-session-delete)
 ## Why the obvious implementation is wrong
 
 DSH has no session-delete seam. `session/list` — the only source of sidebar rows
