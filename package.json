@@ -1,6 +1,6 @@
 {
   "name": "dsh-session-delete",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "private": true,
   "description": "Adds a 删除会话 action to the session menu: archives live sessions through the supported workspace seam (so no 未分组 ghost row appears), moves logs to the Windows Recycle Bin, and refreshes the sidebar in place.",
   "type": "module",
