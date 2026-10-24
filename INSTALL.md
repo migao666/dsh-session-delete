@@ -60,3 +60,24 @@
 - 只支持 Windows；其他系统没有系统回收站路径。
 - 若 DSH 升级后插件不可用，先查看插件状态和启动日志；不要直接改 profile 的
   `package.json`。
+
+## 从 GitHub 拉取安装（另一台电脑）
+
+仓库（私有）：https://github.com/migao666/dsh-session-delete
+
+`powershell
+git clone https://github.com/migao666/dsh-session-delete.git C:\Users\<用户名>\Documents\dsh-session-delete
+`
+
+如果这台电脑没有 git，也可以直接在 GitHub 网页上「Code → Download ZIP」解压。
+
+然后在 DSH 会话里：
+
+`	ext
+请用 plugin_manager install_bundle 安装这个本地插件：
+C:\Users\<用户名>\Documents\dsh-session-delete
+`
+
+等 pplication: applied 后重启 DSH。私有仓库需要先登录（gh auth login，或用带 repo 权限的 token）。
+本机已配置自动同步：~/.dsh/plugins/dsh-session-delete 有改动时，计划任务每 5 分钟镜像并推送到该仓库。
+
