@@ -1,0 +1,31 @@
+name: release
+
+on:
+  push:
+    tags: ['v*']
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build the plugin zip
+        run: |
+          set -euo pipefail
+          VERSION="${GITHUB_REF_NAME#v}"
+          mkdir -p dist/dsh-session-delete
+          cp index.js client.js package.json cordis.patch.yml icon.svg \
+             README.md INSTALL.md CHANGELOG.md test-delete.mjs test-client.mjs \
+             dist/dsh-session-delete/
+          cp -r locale evidence dist/dsh-session-delete/
+          cd dist
+          zip -qr "../dsh-session-delete-${VERSION}.zip" dsh-session-delete
+          cd ..
+          ls -lh "dsh-session-delete-${VERSION}.zip"
+      - uses: softprops/action-gh-release@v2
+        with:
+          files: dsh-session-delete-*.zip
+          generate_release_notes: true

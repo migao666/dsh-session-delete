@@ -1,0 +1,24 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    # The recycle-bin move and the HMR double run against Windows PowerShell.
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Syntax check
+        run: |
+          node --check index.js
+          node --check client.js
+      - name: Synthetic host tests
+        run: node test-delete.mjs
+      - name: Synthetic client tests
+        run: node test-client.mjs
