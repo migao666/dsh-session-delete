@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Session Delete",
+    "description": "Adds 删除会话 to the session menu; moves logs to the Windows Recycle Bin and removes the session from lists, archived views, and search."
+  }
+}

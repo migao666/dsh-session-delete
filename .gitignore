@@ -1,0 +1,7 @@
+node_modules/
+
+# local build/debug leftovers
+*.orig-*
+*.bak
+*.tmp
+*.log

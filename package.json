@@ -1,0 +1,43 @@
+{
+  "name": "dsh-session-delete",
+  "version": "0.2.0",
+  "private": true,
+  "description": "Adds a 删除会话 action to the session menu: archives live sessions through the supported workspace seam (so no 未分组 ghost row appears), moves logs to the Windows Recycle Bin, and refreshes the sidebar in place.",
+  "type": "module",
+  "main": "./index.js",
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "index.js",
+    "client.js",
+    "cordis.patch.yml",
+    "README.md",
+    "INSTALL.md",
+    "test-delete.mjs",
+    "locale/*.json",
+    "icon.svg",
+    "test-client.mjs",
+    "evidence"
+  ],
+  "scripts": {
+    "test": "node test-delete.mjs"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "inject": [
+        "@deepseek-ai/dsh-client-runtime",
+        "@deepseek-ai/dsh-client-ui-slots"
+      ],
+      "platform": "web"
+    }
+  },
+  "license": "MIT"
+}
